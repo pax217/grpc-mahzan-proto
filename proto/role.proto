@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+
+service Role{
+  rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse){}
+  rpc GetRolesPaged(GetRolesRequest) returns (GetRolesResponse){}
+}
+
+message CreateRoleRequest{
+  string name = 1;
+  string description = 2;
+}
+
+message CreateRoleResponse {
+  string message = 1;
+}
+
+message GetRolesRequest{
+  optional RoleFilter role_filter = 1;
+  int64 page_number = 2;
+  int64 page_size = 3;
+}
+
+message GetRolesResponse {
+  bool has_more = 1;
+  int64 total=2;
+  repeated Roles roles = 3;
+}
+
+message Roles{
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message RoleFilter {
+  string name = 1;
+}

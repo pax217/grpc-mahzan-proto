@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+
+service Ping {
+  rpc Ping(EmptyRequest) returns (PingResponse);
+}
+
+message EmptyRequest {
+}
+
+message PingResponse {
+  string version = 1;
+  string time = 2;
+}
