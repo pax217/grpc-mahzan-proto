@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+
+service Menu{
+  rpc GetMenu(GetMenuRequest) returns (GetMenuResponse){}
+}
+
+message GetMenuRequest {
+
+}
+
+message GetMenuResponse {
+  repeated string description = 1;
+}
