@@ -16,6 +16,7 @@ message SignUpRequest{
   string password = 2;
   string email = 3;
   string full_name = 4;
+  bool accept_terms = 5;
 }
 
 message SignUpResponse {
