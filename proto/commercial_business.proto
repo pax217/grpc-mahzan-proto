@@ -7,13 +7,17 @@ option go_package= "./proto";
 
 service CommercialBusinessService{
   rpc Get(FilterCommercialBusiness) returns (ResponseGetCommercialBusiness){}
-  rpc Create(CommercialBusiness) returns (Response){}
+  rpc Create(RequestCommercialBusiness) returns (Response){}
 }
 
 message CommercialBusiness{
   int32 key = 1;
   string   name = 2;
   string   description = 3;
+}
+
+message RequestCommercialBusiness{
+    CommercialBusiness commercial_business = 1;
 }
 
 message FilterCommercialBusiness{
