@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "response.proto";
+
+package main;
+
+option go_package= "./proto";
+
+service CommercialBusinessService{
+  rpc Get(FilterCommercialBusiness) returns (ResponseGetCommercialBusiness){}
+  rpc Create(CommercialBusiness) returns (Response){}
+}
+
+message CommercialBusiness{
+  int32 key = 1;
+  string   name = 2;
+  string   description = 3;
+}
+
+message FilterCommercialBusiness{
+  int32 key = 1;
+  string   name = 2;
+}
+
+message ResponseGetCommercialBusiness{
+  Response response =1;
+  repeated CommercialBusiness commercial_business = 2;
+}
+

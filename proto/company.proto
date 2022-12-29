@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "response.proto";
+
+package main;
+
+option go_package= "./proto";
+
+service Company{
+  rpc Create(CreateRequest) returns (Response){}
+}
+
+message CreateRequest{
+  string commercial_business_id = 1;
+  string name = 2;
+  string address = 3;
+}

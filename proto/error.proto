@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+
+message Errors{
+  repeated Error errors = 1;
+}
+
+message Error{
+  string id = 1;
+  string code = 2;
+  string message = 3;
+  string status = 4;
+}
