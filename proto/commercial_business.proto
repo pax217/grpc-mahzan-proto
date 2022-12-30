@@ -29,4 +29,3 @@ message ResponseGetCommercialBusiness{
   Response response =1;
   repeated CommercialBusiness commercial_business = 2;
 }
-
