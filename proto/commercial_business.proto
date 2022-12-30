@@ -6,8 +6,8 @@ package main;
 option go_package= "./proto";
 
 service CommercialBusinessService{
-  rpc Get(FilterCommercialBusiness) returns (ResponseGetCommercialBusiness){}
-  rpc Create(RequestCommercialBusiness) returns (Response){}
+  rpc Get(RequestGetCommercialBusiness) returns (ResponseGetCommercialBusiness){}
+  rpc Create(RequestCreateCommercialBusiness) returns (Response){}
 }
 
 message CommercialBusiness{
@@ -16,11 +16,11 @@ message CommercialBusiness{
   string   description = 3;
 }
 
-message RequestCommercialBusiness{
+message RequestCreateCommercialBusiness{
     CommercialBusiness commercial_business = 1;
 }
 
-message FilterCommercialBusiness{
+message RequestGetCommercialBusiness{
   int32 key = 1;
   string   name = 2;
 }
