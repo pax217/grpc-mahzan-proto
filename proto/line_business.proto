@@ -24,6 +24,7 @@ message RequestCreateLineBusiness{
 message RequestGetLineBusiness{
   int32 key = 1;
   string   name = 2;
+  bool paged = 3;
 }
 
 message ResponseGetLineBusiness{
