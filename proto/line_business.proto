@@ -4,28 +4,29 @@ import "response.proto";
 package main;
 
 option go_package= "./proto";
+import "google/protobuf/any.proto";
 
-service CommercialBusinessService{
-  rpc Get(RequestGetCommercialBusiness) returns (ResponseGetCommercialBusiness){}
+service LineBusinessService{
+  rpc Get(RequestGetLineBusiness) returns (ResponseGetLineBusiness){}
   rpc Create(RequestCreateCommercialBusiness) returns (Response){}
 }
 
-message CommercialBusiness{
+message LineBusiness{
   int32 key = 1;
   string   name = 2;
   string   description = 3;
 }
 
 message RequestCreateCommercialBusiness{
-    CommercialBusiness commercial_business = 1;
+    LineBusiness line_business = 1;
 }
 
-message RequestGetCommercialBusiness{
+message RequestGetLineBusiness{
   int32 key = 1;
   string   name = 2;
 }
 
-message ResponseGetCommercialBusiness{
+message ResponseGetLineBusiness{
   Response response =1;
-  repeated CommercialBusiness commercial_business = 2;
+  optional google.protobuf.Any data= 2;
 }
