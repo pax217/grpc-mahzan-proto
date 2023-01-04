@@ -1,14 +1,15 @@
 syntax = "proto3";
-import "response.proto";
 
 package main;
 
 option go_package= "./proto";
 
+import "google/protobuf/empty.proto";
+
 service LineBusinessService{
   rpc Get(GetLineBusinessRequest) returns (GetLineBusinessResponse){}
   rpc GetPaged(GetLineBusinessRequest) returns (GetPagedLineBusinessResponse){}
-  rpc Create(CreateLineBusinessRequest) returns (Response){}
+  rpc Create(CreateLineBusinessRequest) returns (google.protobuf.Empty){}
 }
 // Model
 message LineBusiness{
@@ -30,13 +31,11 @@ message GetLineBusinessRequest{
 }
 
 message GetLineBusinessResponse{
-  Response response =1;
   repeated LineBusiness data= 2;
 }
 
 // Get Paged
 message GetPagedLineBusinessResponse{
-  Response response =1;
   ResponseGetPagedData data =2;
 }
 
