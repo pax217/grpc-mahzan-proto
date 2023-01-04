@@ -6,32 +6,35 @@ package main;
 option go_package= "./proto";
 
 service LineBusinessService{
-  rpc Get(GetFilter) returns (ResponseGet){}
-  rpc GetPaged(GetFilter) returns (ResponseGetPaged){}
-  rpc Create(RequestCreate) returns (Response){}
+  rpc Get(GetLineBusinessRequest) returns (GetLineBusinessResponse){}
+  rpc GetPaged(GetLineBusinessRequest) returns (GetPagedLineBusinessResponse){}
+  rpc Create(CreateLineBusinessRequest) returns (Response){}
 }
-
+// Model
 message LineBusiness{
   int32 key = 1;
   string   name = 2;
   string   description = 3;
 }
 
-message RequestCreate{
+// Create
+message CreateLineBusinessRequest{
     LineBusiness line_business = 1;
 }
 
-message GetFilter{
+// Get
+message GetLineBusinessRequest{
   int32 key = 1;
   string   name = 2;
 }
 
-message ResponseGet{
+message GetLineBusinessResponse{
   Response response =1;
   repeated LineBusiness data= 2;
 }
 
-message ResponseGetPaged{
+// Get Paged
+message GetPagedLineBusinessResponse{
   Response response =1;
   ResponseGetPagedData data =2;
 }
