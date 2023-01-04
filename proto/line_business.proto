@@ -4,11 +4,11 @@ import "response.proto";
 package main;
 
 option go_package= "./proto";
-import "google/protobuf/any.proto";
 
 service LineBusinessService{
-  rpc Get(RequestGetLineBusiness) returns (ResponseGetLineBusiness){}
-  rpc Create(RequestCreateLineBusiness) returns (Response){}
+  rpc Get(GetFilter) returns (ResponseGet){}
+  rpc GetPaged(GetFilter) returns (ResponseGetPaged){}
+  rpc Create(RequestCreate) returns (Response){}
 }
 
 message LineBusiness{
@@ -17,17 +17,30 @@ message LineBusiness{
   string   description = 3;
 }
 
-message RequestCreateLineBusiness{
+message RequestCreate{
     LineBusiness line_business = 1;
 }
 
-message RequestGetLineBusiness{
+message GetFilter{
   int32 key = 1;
   string   name = 2;
-  bool paged = 3;
 }
 
-message ResponseGetLineBusiness{
+message ResponseGet{
   Response response =1;
-  optional google.protobuf.Any data= 2;
+  repeated LineBusiness data= 2;
 }
+
+message ResponseGetPaged{
+  Response response =1;
+  ResponseGetPagedData data =2;
+}
+
+message ResponseGetPagedData{
+  bool has_more =1;
+  int64 total =2;
+  string object =3;
+  repeated LineBusiness items =4;
+}
+
+
