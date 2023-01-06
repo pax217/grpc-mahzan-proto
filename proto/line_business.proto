@@ -2,9 +2,10 @@ syntax = "proto3";
 
 package main;
 
+import "google/protobuf/empty.proto";
+
 option go_package= "./proto";
 
-import "google/protobuf/empty.proto";
 
 service LineBusinessService{
   rpc Get(GetLineBusinessRequest) returns (GetLineBusinessResponse){}
