@@ -32,12 +32,12 @@ message GetLineBusinessRequest{
 }
 
 message GetLineBusinessResponse{
-  repeated LineBusiness data= 2;
+  repeated LineBusiness items= 1;
 }
 
 // Get Paged
 message GetPagedLineBusinessResponse{
-  ResponseGetPagedData data =2;
+  ResponseGetPagedData data =1;
 }
 
 message ResponseGetPagedData{
