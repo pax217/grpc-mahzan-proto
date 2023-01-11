@@ -5,12 +5,62 @@ package main;
 option go_package= "./proto";
 import "google/protobuf/empty.proto";
 
-service Company{
-  rpc Create(CreateRequest) returns (google.protobuf.Empty){}
+service CompanyService{
+  rpc Create(CreateCompanyRequest) returns (google.protobuf.Empty){}
 }
 
-message CreateRequest{
-  string commercial_business_id = 1;
+message Company{
+    Data data = 1;
+    Fiscal fiscal = 2;
+    FiscalLocation fiscal_location = 3;
+    ExpeditionLocation expedition_location = 4;
+}
+
+message Data{
+  string line_business_id = 1;
   string name = 2;
   string address = 3;
+  string city = 4;
+  string state = 5;
+  int32 postal_code = 6;
+  string phone = 7;
+  string mobile_phone = 8;
+  string email = 9;
+}
+
+message Fiscal{
+  string name = 1;
+  string rfc = 2;
+  string curp = 3;
+  string additional_info = 4;
+  string tax_regime_id = 5 ;
+}
+
+message FiscalLocation{
+  string address = 1;
+  string external_number = 2;
+  optional string internal_number = 3;
+  string suburb = 4;
+  string location = 5;
+  int32 postal_code = 6;
+  string city = 7;
+  string state = 8;
+  string country = 9;
+}
+
+message ExpeditionLocation{
+  string address = 1;
+  string external_number = 2;
+  optional string internal_number = 3;
+  string suburb = 4;
+  string location = 5;
+  int32 postal_code = 6;
+  string city = 7;
+  string state = 8;
+  string country = 9;
+}
+
+// Create
+message CreateCompanyRequest{
+    Company company = 1;
 }

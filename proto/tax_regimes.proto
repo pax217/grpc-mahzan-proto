@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+
+service TaxRegimesService{
+  rpc Get(GetTaxRegimesRequest) returns (GetTaxRegimesResponse){}
+}
+
+message TaxRegimes{
+  string id = 1;
+  int32 key = 2;
+  string description = 3;
+  bool physical_person = 4;
+  bool moral_person = 5;
+}
+
+// Get
+message GetTaxRegimesRequest{
+  int32 key = 1;
+  string   name = 2;
+}
+
+message GetTaxRegimesResponse{
+  repeated TaxRegimes items= 1;
+}
