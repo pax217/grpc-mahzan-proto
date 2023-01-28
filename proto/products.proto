@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+import "google/protobuf/empty.proto";
+
+
+service ProductService{
+  rpc Create(CreateProductRequest) returns (google.protobuf.Empty){}
+}
+
+message Product{
+  string key = 1;
+  string bar_code = 2;
+  string alternate_key = 3;
+  bool is_service = 4;
+  string description = 5;
+  string category_id = 6;
+  string department_id = 7;
+  string purchase_unit_id = 8;
+  string sale_unit_id = 9;
+  double factor = 10;
+  repeated string tax_id = 11;
+}
+
+// Create
+message CreateProductRequest{
+  Product product = 1;
+}

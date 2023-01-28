@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+import "google/protobuf/empty.proto";
+
+service TaxService{
+  rpc Create(CreateTaxRequest) returns (google.protobuf.Empty){}
+}
+
+message Tax{
+  string name = 1;
+  double percentage =2;
+}
+
+// Create
+message CreateTaxRequest{
+  Tax product = 1;
+}
