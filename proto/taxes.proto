@@ -16,5 +16,5 @@ message Tax{
 
 // Create
 message CreateTaxRequest{
-  Tax product = 1;
+  Tax tax = 1;
 }
