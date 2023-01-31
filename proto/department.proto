@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+import "google/protobuf/empty.proto";
+
+service DepartmentService{
+  rpc Create(CreateDepartmentRequest) returns (google.protobuf.Empty){}
+}
+
+message Department{
+  string name = 1;
+  string member_id = 2;
+}
+
+// Create
+message CreateDepartmentRequest{
+  Department department = 1;
+}
