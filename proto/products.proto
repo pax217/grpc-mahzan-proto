@@ -22,7 +22,7 @@ message Product{
   string purchase_unit_id = 9;
   string sale_unit_id = 10;
   double factor = 11;
-  repeated string tax_id = 12;
+  repeated string taxes = 12;
 }
 
 // Create
