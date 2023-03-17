@@ -5,7 +5,6 @@ package main;
 option go_package= "./proto";
 import "google/protobuf/empty.proto";
 
-
 service ProductService{
   rpc Create(CreateProductRequest) returns (google.protobuf.Empty){}
 }
@@ -14,15 +13,17 @@ message Product{
   string key = 1;
   string bar_code = 2;
   string alternate_key = 3;
-  bool is_service = 4;
-  string description = 5;
-  string department_id = 6;
-  string category_id = 7;
-  string sub_category_id = 8;
-  string purchase_unit_id = 9;
-  string sale_unit_id = 10;
-  double factor = 11;
-  repeated string tax_id = 12;
+  double cost = 4;
+  double price = 5;
+  bool is_service = 6;
+  string description = 7;
+  string department_id = 8;
+  string category_id = 9;
+  string sub_category_id = 10;
+  string purchase_unit_id = 11;
+  string sale_unit_id = 12;
+  double factor = 13;
+  repeated string taxes = 14;
 }
 
 // Create
