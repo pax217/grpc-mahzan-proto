@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package main;
+
+option go_package= "./proto";
+import "google/protobuf/empty.proto";
+
+service PurchaseUnitService{
+  rpc Create(CreatePurchaseUnitRequest) returns (google.protobuf.Empty){}
+}
+
+message PurchaseUnit{
+  string abbreviation = 1;
+  string description = 2;
+}
+
+// Create
+message CreatePurchaseUnitRequest{
+  PurchaseUnit purchase_unit = 1;
+}
