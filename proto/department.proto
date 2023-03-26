@@ -7,6 +7,7 @@ import "google/protobuf/empty.proto";
 
 service DepartmentService{
   rpc Create(CreateDepartmentRequest) returns (google.protobuf.Empty){}
+  rpc GetPaged(GetDepartmentsFilter) returns (GetPagedDepartmentsResponse){}
 }
 
 message Department{
@@ -16,4 +17,22 @@ message Department{
 // Create
 message CreateDepartmentRequest{
   Department department = 1;
+}
+
+// Get Paged
+message GetPagedDepartmentsResponse{
+  ResponseGetPagedData data =1;
+}
+
+message ResponseGetPagedData{
+  bool has_more =1;
+  int64 total =2;
+  string object =3;
+  repeated Department items =4;
+}
+
+// Get
+message GetDepartmentsFilter{
+  string ID = 1;
+  string name = 2;
 }
