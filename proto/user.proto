@@ -30,7 +30,6 @@ message LogInRequest{
 }
 
 message LogInResponse {
-  string message = 1;
   optional string token = 2;
 }
 
