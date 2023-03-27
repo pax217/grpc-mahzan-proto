@@ -4,6 +4,7 @@ package main;
 
 option go_package= "./proto";
 import "google/protobuf/empty.proto";
+import "pagination.proto";
 
 service DepartmentService{
   rpc Create(CreateDepartmentRequest) returns (google.protobuf.Empty){}
@@ -36,4 +37,5 @@ message DepartmentsData{
 message GetDepartmentsFilter{
   string ID = 1;
   string name = 2;
+  Pagination pagination = 3;
 }
