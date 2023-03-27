@@ -35,7 +35,7 @@ message DepartmentsData{
 
 // Get
 message GetDepartmentsFilter{
-  string id = 1;
-  string name = 2;
+  optional string id = 1;
+  optional string name = 2;
   Pagination pagination = 3;
 }
