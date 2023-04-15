@@ -22,7 +22,9 @@ message LineBusiness{
 
 // Create
 message CreateLineBusinessRequest{
-    LineBusiness line_business = 1;
+  int32             key = 2;
+  string            name = 3;
+  optional string   description = 4;
 }
 
 // Get
