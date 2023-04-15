@@ -4,16 +4,38 @@ package main;
 
 option go_package= "./proto";
 import "google/protobuf/empty.proto";
+import "pagination.proto";
 
 service DepartmentService{
   rpc Create(CreateDepartmentRequest) returns (google.protobuf.Empty){}
+  rpc GetPaged(GetDepartmentsFilter) returns (GetPagedDepartmentsResponse){}
 }
 
 message Department{
-  string name = 1;
+  string ID = 1;
+  string name = 2;
 }
 
 // Create
 message CreateDepartmentRequest{
   Department department = 1;
+}
+
+// Get Paged
+message GetPagedDepartmentsResponse{
+  DepartmentsData data =1;
+}
+
+message DepartmentsData{
+  bool has_more =1;
+  int64 total =2;
+  string object =3;
+  repeated Department items =4;
+}
+
+// Get
+message GetDepartmentsFilter{
+  optional string id = 1;
+  optional string name = 2;
+  Pagination pagination = 3;
 }
