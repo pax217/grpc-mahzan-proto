@@ -29,8 +29,7 @@ message LogInRequest{
 }
 
 message LogInResponse {
-  string message = 1;
-  optional string token = 2;
+  optional string token = 1;
 }
 
 message RecoverRequest{
