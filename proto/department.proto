@@ -12,8 +12,9 @@ service DepartmentService{
 }
 
 message Department{
-  string ID = 1;
+  string id = 1;
   string name = 2;
+  string member_id = 3;
 }
 
 // Create
