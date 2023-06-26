@@ -4,9 +4,11 @@ package main;
 
 option go_package= "./proto";
 import "google/protobuf/empty.proto";
+import "pagination.proto";
 
 service CategoryService{
   rpc Create(CreateCategoryRequest) returns (google.protobuf.Empty){}
+  rpc GetPaged(GetCategoriesFilter) returns (GetPagedCategoriesResponse){}
 }
 
 message Category{
@@ -17,4 +19,23 @@ message Category{
 // Create
 message CreateCategoryRequest{
   Category category = 1;
+}
+
+// Get Paged
+message GetPagedCategoriesResponse{
+  CategoriesData data =1;
+}
+
+message CategoriesData{
+  bool has_more =1;
+  int64 total =2;
+  string object =3;
+  repeated Category items =4;
+}
+
+// Get
+message GetCategoriesFilter{
+  optional string id = 1;
+  optional string name = 2;
+  Pagination pagination = 3;
 }
