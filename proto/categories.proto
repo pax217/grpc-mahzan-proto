@@ -9,11 +9,13 @@ import "pagination.proto";
 service CategoryService{
   rpc Create(CreateCategoryRequest) returns (google.protobuf.Empty){}
   rpc GetPaged(GetCategoriesFilter) returns (GetPagedCategoriesResponse){}
+  rpc Delete(DeleteCategoryRequest) returns (google.protobuf.Empty){}
+  rpc Update(UpdateCategoryRequest) returns (google.protobuf.Empty){}
 }
 
 message Category{
   string name = 1;
-  string department_id = 3;
+  string category_id = 2;
 }
 
 // Create
@@ -38,4 +40,14 @@ message GetCategoriesFilter{
   optional string id = 1;
   optional string name = 2;
   Pagination pagination = 3;
+}
+
+//Delete
+message DeleteCategoryRequest{
+  string id = 2;
+}
+
+//Update
+message UpdateCategoryRequest{
+  Category category = 1;
 }
