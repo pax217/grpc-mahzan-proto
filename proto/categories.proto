@@ -20,7 +20,7 @@ message Category{
 
 // Create
 message CreateCategoryRequest{
-  Category category = 1;
+  string name = 1;
 }
 
 // Get Paged
@@ -44,7 +44,7 @@ message GetCategoriesFilter{
 
 //Delete
 message DeleteCategoryRequest{
-  string id = 2;
+  string category_id = 2;
 }
 
 //Update
