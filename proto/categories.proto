@@ -21,6 +21,7 @@ message Category{
 // Create
 message CreateCategoryRequest{
   string name = 1;
+  string department_id = 2;
 }
 
 // Get Paged
