@@ -16,6 +16,7 @@ service CategoryService{
 message Category{
   string name = 1;
   string category_id = 2;
+  string department_id = 3;
 }
 
 // Create
